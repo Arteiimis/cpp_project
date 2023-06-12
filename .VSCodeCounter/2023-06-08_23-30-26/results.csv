@@ -1,0 +1,11 @@
+"filename", "language", "C++", "comment", "blank", "total"
+"c:\Users\LEGION\Desktop\c++_project\include\fileManage.h", "C++", 77, 0, 6, 83
+"c:\Users\LEGION\Desktop\c++_project\include\logger.h", "C++", 15, 0, 4, 19
+"c:\Users\LEGION\Desktop\c++_project\include\manager.h", "C++", 49, 0, 12, 61
+"c:\Users\LEGION\Desktop\c++_project\include\menu.h", "C++", 85, 1, 6, 92
+"c:\Users\LEGION\Desktop\c++_project\include\person.h", "C++", 39, 0, 15, 54
+"c:\Users\LEGION\Desktop\c++_project\include\personList.h", "C++", 143, 1, 21, 165
+"c:\Users\LEGION\Desktop\c++_project\include\salesManager.h", "C++", 72, 0, 14, 86
+"c:\Users\LEGION\Desktop\c++_project\include\salesPerson.h", "C++", 53, 0, 12, 65
+"c:\Users\LEGION\Desktop\c++_project\include\technician.h", "C++", 55, 0, 11, 66
+"Total", "-", 588, 2, 101, 691
