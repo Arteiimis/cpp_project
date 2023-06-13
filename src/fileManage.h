@@ -10,7 +10,7 @@
 class fileManage : public personList
 {
 private:
-    std::string filename = "C:\\Users\\LEGION\\Desktop\\c++_project\\data\\database.txt";
+    std::string filename = "C:\\Users\\LEGION\\CLionProjects\\cpp_project\\data\\database.txt";
     std::ifstream fin;
     std::ofstream fout;
     std::string line;

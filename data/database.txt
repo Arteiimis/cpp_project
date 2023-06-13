@@ -1,3 +1,5 @@
 name: asd id: 1 level: technician hours: 90 salary: 4500
 name: zlp id: 2 level: technician hours: 50 salary: 2500
 name: jkl id: 3 level: manager salary: 1000
+name: 张林鹏 id: 4 level: technician hours: 100 salary: 5000
+name: zlp id: 5 level: technician hours: 100 salary: 6000

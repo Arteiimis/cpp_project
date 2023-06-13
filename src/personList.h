@@ -19,13 +19,14 @@
 class personList
 {
 private:
-    std::vector<person*> list;
+    std::vector<person *> list;
 
 public:
     personList() { }
+
     ~personList() { }
 
-    void append(person* p)
+    void append(person *p)
     {
         p->set_id(std::to_string(list.size() + 1));
         list.push_back(p);
@@ -45,47 +46,47 @@ public:
         _CLEAR_OUTPUT;
         switch (choice)
         {
-        case 1:
-        {
-            size_t salary;
-            std::cout << "input base salary: ";
-            std::cin >> salary;
-            append(new manager(name, id, "manager", salary));
-            break;
-        }
-        case 2:
-        {
-            size_t sales;
-            std::cout << "input total sales: ";
-            std::cin >> sales;
-            append(new salesPerson(name, id, "salesPerson", sales));
-            break;
-        }
-        case 3:
-        {
-            size_t sales, salary;
-            std::cout << "input total sales: ";
-            std::cin >> sales;
-            std::cout << "input base salary: ";
-            std::cin >> salary;
-            append(new salesManager(name, id, "salesManager", sales, salary));
-            break;
-        }
-        case 4:
-        {
-            size_t work_hour, base_salary;
-            std::cout << "input work hour: ";
-            std::cin >> work_hour;
-            std::cout << "input base salary: ";
-            std::cin >> base_salary;
-            append(new technician(name, id, "technician", work_hour, base_salary));
-            break;
-        }
+            case 1:
+            {
+                size_t salary;
+                std::cout << "input base salary: ";
+                std::cin >> salary;
+                append(new manager(name, id, "manager", salary));
+                break;
+            }
+            case 2:
+            {
+                size_t sales;
+                std::cout << "input total sales: ";
+                std::cin >> sales;
+                append(new salesPerson(name, id, "salesPerson", sales));
+                break;
+            }
+            case 3:
+            {
+                size_t sales, salary;
+                std::cout << "input total sales: ";
+                std::cin >> sales;
+                std::cout << "input base salary: ";
+                std::cin >> salary;
+                append(new salesManager(name, id, "salesManager", sales, salary));
+                break;
+            }
+            case 4:
+            {
+                size_t work_hour, base_salary;
+                std::cout << "input work hour: ";
+                std::cin >> work_hour;
+                std::cout << "input base salary: ";
+                std::cin >> base_salary;
+                append(new technician(name, id, "technician", work_hour, base_salary));
+                break;
+            }
         }
         std::cout << "add new person successfully" << std::endl;
     }
 
-    void up_grade(person* p)
+    void up_grade(person *p)
     {
         std::string level = p->get_level();
         if (level == "manager")
@@ -99,7 +100,7 @@ public:
                 size_t sales;
                 std::cout << "input total sales: ";
                 std::cin >> sales;
-                p = new salesManager(dynamic_cast<manager&>(*p));
+                p = new salesManager(dynamic_cast<manager &>(*p));
             }
             else
             { std::cout << "cancel upgrate" << std::endl; }
@@ -115,21 +116,18 @@ public:
                 size_t salary;
                 std::cout << "input base salary: ";
                 std::cin >> salary;
-                p = new salesManager(dynamic_cast<salesPerson&>(*p));
+                p = new salesManager(dynamic_cast<salesPerson &>(*p));
             }
             else
             { std::cout << "cancel upgrate" << std::endl; }
         }
     }
 
-    bool isEmpty() const
-    { return list.empty(); }
+    bool isEmpty() const { return list.empty(); }
 
-    size_t get_size() const
-    { return list.size(); }
+    size_t get_size() const { return list.size(); }
 
-    person* get_person(size_t index) const
-    { return list[index]; }
+    person *get_person(size_t index) const { return list[index]; }
 
     void reSync_id()
     {
@@ -137,18 +135,19 @@ public:
         { list[i]->set_id(std::to_string(i + 1)); }
     }
 
-    void _delete(const std::string& ni)
+    void _delete(const std::string &ni)
     {
         auto it = std::find_if(list.begin(), list.end(),
-                                [ni](person* p) { return p->get_id() == ni || p->get_name() == ni; });
-        if (it != list.end()) { list.erase(it); }
+                               [ni](person *p) { return p->get_id() == ni || p->get_name() == ni; });
+        if (it != list.end())
+        { list.erase(it); }
         reSync_id();
     }
 
-    void change_name(const std::string& id)
+    void change_name(const std::string &id)
     {
         auto it = std::find_if(list.begin(), list.end(),
-                               [id](person* p) { return p->get_id() == id; });
+                               [id](person *p) { return p->get_id() == id; });
         if (it != list.end())
         {
             std::string name;
@@ -160,7 +159,7 @@ public:
         { std::cout << "not found" << std::endl; }
     }
 
-    void change_name(person* p)
+    void change_name(person *p)
     {
         std::string name;
         std::cout << "input new name: ";
@@ -169,7 +168,7 @@ public:
         std::cout << "change name successfully" << std::endl;
     }
 
-    void change_base_salary(person* p)
+    void change_base_salary(person *p)
     {
         size_t base_salary;
         std::cout << "input new base salary: ";
@@ -178,10 +177,10 @@ public:
         std::cout << "change base salary successfully" << std::endl;
     }
 
-    std::vector<person*> find(const std::string& ni)
+    std::vector<person *> find(const std::string &ni)
     {
-        std::vector<person*> res;
-        for (auto&& it : list)
+        std::vector<person *> res;
+        for (auto &&it: list)
         {
             if (it->get_id() == ni || it->get_name() == ni)
             { res.push_back(it); }
@@ -190,18 +189,20 @@ public:
     }
 
     void sort_by_id()
-    { std::sort(list.begin(), list.end(), [](person* p1, person* p2) { return p1->get_id() < p2->get_id(); }); }
+    {
+        std::sort(list.begin(), list.end(), [](person *p1, person *p2) { return p1->get_id() < p2->get_id(); });
+    }
 
     void sort_by_name()
     {
-        std::sort(list.begin(), list.end(), [](person* p1, person* p2) { return p1->get_name() < p2->get_name(); });
+        std::sort(list.begin(), list.end(), [](person *p1, person *p2) { return p1->get_name() < p2->get_name(); });
         reSync_id();
     }
 
     void show() const
     {
         std::cout << "== show all person ==" << std::endl;
-        for (auto&& p : list)
+        for (auto &&p: list)
         {
             std::cout << "====================" << std::endl;
             p->show();
@@ -210,8 +211,11 @@ public:
         }
     }
 
-    void fprint(std::ostream& os) const
-    { for (auto&& it : list) { it->fprint(os); } }
+    void fprint(std::ostream &os) const
+    {
+        for (auto &&it: list)
+        { it->fprint(os); }
+    }
 };
 
 #endif // _PERSONLIST_H_

@@ -1,4 +1,7 @@
 /build
 .vscode
-.VSCodeCounter
-.cache
+/.VSCodeCounter
+/.cache
+/cmake-build-debug
+/cmake-build-debug-event-trace
+/cmake-build-debug-
