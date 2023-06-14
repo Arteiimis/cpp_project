@@ -16,7 +16,8 @@ private:
     fileManage fm;
 
 public:
-    menu() { fm.load(); }
+    menu()
+    { fm.load(); }
     ~menu() = default;
 
     static void show()
@@ -115,7 +116,7 @@ public:
                         std::cout << "you can modiy: base_salary, name" << std::endl;
                         std::cout << "input information you want to modify: ";
                         std::cin >> info;
-                        if (info == "base salary")
+                        if (info == "base_salary")
                         {
                             size_t salary;
                             std::cout << "input new base salary: ";
@@ -138,7 +139,7 @@ public:
                         std::cout << "you can modiy: total_sales, name" << std::endl;
                         std::cout << "input information you want to modify: ";
                         std::cin >> info;
-                        if (info == "total sales")
+                        if (info == "total_sales")
                         {
                             size_t sales;
                             std::cout << "input new total sales: ";
@@ -156,12 +157,12 @@ public:
                         }
                         else { std::cout << "invalid input!" << std::endl; }
                     }
-                    else if (info == "salesManager")
+                    else if (p->get_level() == "salesManager")
                     {
                         std::cout << "you can modiy: base_salary, total_sales, name" << std::endl;
                         std::cout << "input information you want to modify: ";
                         std::cin >> info;
-                        if (info == "base salary")
+                        if (info == "base_salary")
                         {
                             size_t salary;
                             std::cout << "input new base salary: ";
@@ -169,12 +170,43 @@ public:
                             dynamic_cast<salesManager *>(p)->set_base_salary(salary);
                             std::cout << "modify successfully!" << std::endl;
                         }
-                        else if (info == "total sales")
+                        else if (info == "total_sales")
                         {
                             size_t sales;
                             std::cout << "input new total sales: ";
                             std::cin >> sales;
                             dynamic_cast<salesManager *>(p)->set_sales(sales);
+                            std::cout << "modify successfully!" << std::endl;
+                        }
+                        else if (info == "name")
+                        {
+                            std::string name;
+                            std::cout << "input new name: ";
+                            std::cin >> name;
+                            p->set_name(name);
+                            std::cout << "modify successfully!" << std::endl;
+                        }
+                        else { std::cout << "invalid input!" << std::endl; }
+                    }
+                    else if (p->get_level() == "technician")
+                    {
+                        std::cout << "you can modiy: base_salary, work_hour, name" << std::endl;
+                        std::cout << "input information you want to modify: ";
+                        std::cin >> info;
+                        if (info == "base_salary")
+                        {
+                            size_t salary;
+                            std::cout << "input new base salary: ";
+                            std::cin >> salary;
+                            dynamic_cast<technician *>(p)->set_base_salary(salary);
+                            std::cout << "modify successfully!" << std::endl;
+                        }
+                        else if (info == "work_hour")
+                        {
+                            size_t hour;
+                            std::cout << "input new work hour: ";
+                            std::cin >> hour;
+                            dynamic_cast<technician *>(p)->set_work_hour(hour);
                             std::cout << "modify successfully!" << std::endl;
                         }
                         else if (info == "name")

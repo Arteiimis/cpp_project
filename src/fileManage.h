@@ -65,8 +65,7 @@ public:
             std::cout << "open file failed!" << std::endl;
             exit(EXIT_FAILURE);
         }
-        else
-        { fprint(fout); }
+        else { fprint(fout); }
     }
 };
 

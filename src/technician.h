@@ -39,6 +39,9 @@ public:
     void set_salary()
     { technicianSalery.total_salary = technicianSalery.base_salary + technicianSalery.bonus; }
 
+    void set_work_hour(size_t i)
+    { technicianSalery.work_hour = i; }
+
     size_t get_hours() const
     { return technicianSalery.work_hour; }
 
@@ -59,6 +62,7 @@ public:
         os << "name: " << get_name() << " id: " << get_id() << " level: " << get_level() << " hours: "
            << technicianSalery.work_hour << " salary: " << technicianSalery.total_salary << std::endl;
     }
+
 };
 
 #endif // _TECHNICIAN_H_
