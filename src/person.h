@@ -2,6 +2,7 @@
 #define _PERSON_H_
 
 #include <string>
+#include <utility>
 
 struct salery
 {
@@ -15,40 +16,43 @@ struct salery
 class person
 {
     std::string name;
-    std::string id = 0;
+    std::string id = "0";
     std::string level;
 
 public:
-    person() { }
-    person(const std::string& name, const std::string& id, const std::string& level)
-        : name(name), id(id), level(level) { }
-    ~person() { }
+    person() = default;
+    person(std::string name, std::string id, std::string level) : name(std::move(name)), id(std::move(id)), level(std::move(level))
+    { }
+    ~person() = default;
 
-    void set_name(const std::string& name)
-    { this->name = name; }
+    void set_name(const std::string &n_name)
+    { this->name = n_name; }
 
-    void set_id(const std::string& id)
-    { this->id = id; }
+    void set_id(const std::string &n_id)
+    { this->id = n_id; }
 
-    void set_level(const std::string& level)
-    { this->level = level; }
+    void set_level(const std::string &n_level)
+    { this->level = n_level; }
 
-    const std::string& get_name() const
+    const std::string &get_name() const
     { return name; }
 
-    const std::string& get_id() const
+    const std::string &get_id() const
     { return id; }
 
-    const std::string& get_level() const
+    const std::string &get_level() const
     { return level; }
+
 
     virtual void show() const = 0;
 
-    virtual void fprint(std::ostream& os) const = 0;
+    virtual void fprint(std::ostream &os) const = 0;
 
-    virtual void set_base_salary(size_t base_salary) { }
+    virtual void set_base_salary(size_t base_salary)
+    { }
 
-    virtual void up_grade() { }
+    virtual void up_grade()
+    { }
 };
 
 #endif // _PERSON_H_

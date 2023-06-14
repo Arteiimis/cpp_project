@@ -6,7 +6,7 @@ int main()
     menu menu;
     while (true)
     {
-        menu.show();
+        menu::show();
         menu.choice();
     }
 }

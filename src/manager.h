@@ -12,31 +12,30 @@ private:
     struct salery managerSalery;
 
 public:
-    manager() { }
-    manager(const std::string& name, const std::string& id, const std::string& level = "manager")
-        : person(name, id, level) { }
-    manager(const std::string& name, const std::string& id, const std::string& level = "manager", size_t base_salary = 0)
-        : person(name, id, level)
+    manager() = default;
+    manager(const std::string &name, const std::string &id, const std::string &level = "manager")
+            : person(name, id, level) { }
+    manager(const std::string &name, const std::string &id, const std::string &level = "manager",
+            size_t base_salary = 0)
+            : person(name, id, level)
     {
         managerSalery.base_salary = base_salary;
         set_salary();
     }
 
-    manager(const technician& technician)
-        : person(technician.get_name(), technician.get_id(), technician.get_level())
+    manager(const technician &technician)
+            : person(technician.get_name(), technician.get_id(), technician.get_level())
     {
         managerSalery.base_salary = technician.get_salary();
         set_salary();
     }
-    ~manager() { }
+    ~manager() = default;
 
-    void set_salary()
-    { managerSalery.total_salary = managerSalery.base_salary; }
+    void set_salary() { managerSalery.total_salary = managerSalery.base_salary; }
 
-    size_t get_salary() const
-    { return managerSalery.total_salary; }
+    size_t get_salary() const { return managerSalery.total_salary; }
 
-    virtual void show() const
+    void show() const override
     {
         std::cout << "name: \t" << get_name() << std::endl;
         std::cout << "id: \t" << get_id() << std::endl;
@@ -44,16 +43,23 @@ public:
         std::cout << "salary: \t" << managerSalery.total_salary << std::endl;
     }
 
-    virtual void fprint(std::ostream& os) const
+//    virtual void fprint(std::ostream &os) const
+//    {
+//        os << "name: " << get_name()
+//           << " id: " << get_id()
+//           << " level: " << get_level()
+//           << " salary: " << managerSalery.total_salary << std::endl;
+//    }
+
+    void fprint(std::ostream &os) const override
     {
         os << "name: " << get_name()
-            << " id: " << get_id()
-            << " level: " << get_level()
-            << " salary: " << managerSalery.total_salary << std::endl;
+           << " id: " << get_id()
+           << " level: " << get_level()
+           << " salary: " << managerSalery.total_salary << std::endl;
     }
 
-    virtual void set_base_salary(size_t base_salary)
-    { managerSalery.base_salary = base_salary; }
+    void set_base_salary(size_t base_salary) override { managerSalery.base_salary = base_salary; }
 };
 
 
