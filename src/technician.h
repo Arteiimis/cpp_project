@@ -14,7 +14,8 @@ private:
 public:
     technician() = default;
     technician(const std::string &name, const std::string &id, const std::string &level = "technician")
-            : person(name, id, level) { }
+            : person(name, id, level)
+    { }
     technician(const std::string &name, const std::string &id, const std::string &level = "technician",
                size_t total_hours = 0, size_t base_salary = 0)
             : person(name, id, level)
@@ -32,13 +33,17 @@ public:
         set_bonus();
     }
 
-    void set_bonus() { technicianSalery.bonus = technicianSalery.work_hour * bonus_per_hour; }
+    void set_bonus()
+    { technicianSalery.bonus = technicianSalery.work_hour * bonus_per_hour; }
 
-    void set_salary() { technicianSalery.total_salary = technicianSalery.base_salary + technicianSalery.bonus; }
+    void set_salary()
+    { technicianSalery.total_salary = technicianSalery.base_salary + technicianSalery.bonus; }
 
-    size_t get_hours() const { return technicianSalery.work_hour; }
+    size_t get_hours() const
+    { return technicianSalery.work_hour; }
 
-    size_t get_salary() const { return technicianSalery.total_salary; }
+    size_t get_salary() const
+    { return technicianSalery.total_salary; }
 
     virtual void show() const
     {
@@ -51,11 +56,8 @@ public:
 
     virtual void fprint(std::ostream &os) const
     {
-        os << "name: " << get_name()
-           << " id: " << get_id()
-           << " level: " << get_level()
-           << " hours: " << technicianSalery.work_hour
-           << " salary: " << technicianSalery.total_salary << std::endl;
+        os << "name: " << get_name() << " id: " << get_id() << " level: " << get_level() << " hours: "
+           << technicianSalery.work_hour << " salary: " << technicianSalery.total_salary << std::endl;
     }
 };
 

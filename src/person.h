@@ -21,7 +21,8 @@ class person
 
 public:
     person() = default;
-    person(std::string name, std::string id, std::string level) : name(std::move(name)), id(std::move(id)), level(std::move(level))
+    person(std::string name, std::string id, std::string level)
+            : name(std::move(name)), id(std::move(id)), level(std::move(level))
     { }
     ~person() = default;
 
@@ -49,9 +50,6 @@ public:
     virtual void fprint(std::ostream &os) const = 0;
 
     virtual void set_base_salary(size_t base_salary)
-    { }
-
-    virtual void up_grade()
     { }
 };
 

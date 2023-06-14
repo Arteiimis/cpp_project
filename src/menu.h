@@ -63,7 +63,6 @@ public:
             std::cin >> id;
             CLEAR_OUTPUT;
             std::cout << "please confirm information: " << std::endl;
-            // TODO: show list infomation
             list = fm.find(id);
             std::cout << "all matched person: " << std::endl;
             for (auto &&i: list) { i->show(); }

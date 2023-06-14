@@ -33,11 +33,9 @@ public:
 
     void add_new_person()
     {
-        std::string name, id, level;
+        std::string name, level, id = "0";
         std::cout << "input name: ";
         std::cin >> name;
-        std::cout << "input id: ";
-        std::cin >> id;
         std::cout << "choose level: " << std::endl;
         std::cout << "1. manager, 2. salesPerson, 3. salesManager, 4. technician: ";
         int choice;
@@ -126,11 +124,14 @@ public:
         }
     }
 
-    bool isEmpty() const { return list.empty(); }
+    bool isEmpty() const
+    { return list.empty(); }
 
-    size_t get_size() const { return list.size(); }
+    size_t get_size() const
+    { return list.size(); }
 
-    person *get_person(size_t index) const { return list[index]; }
+    person *get_person(size_t index) const
+    { return list[index]; }
 
     void reSync_id()
     {
@@ -139,16 +140,14 @@ public:
 
     void _delete(const std::string &ni)
     {
-        auto it = std::find_if(list.begin(), list.end(),
-                               [ni](person *p) { return p->get_id() == ni || p->get_name() == ni; });
+        auto it = std::find_if(list.begin(), list.end(), [ni](person *p) { return p->get_id() == ni || p->get_name() == ni; });
         if (it != list.end()) { list.erase(it); }
         reSync_id();
     }
 
     void change_name(const std::string &id)
     {
-        auto it = std::find_if(list.begin(), list.end(),
-                               [id](person *p) { return p->get_id() == id; });
+        auto it = std::find_if(list.begin(), list.end(), [id](person *p) { return p->get_id() == id; });
         if (it != list.end())
         {
             std::string name;
@@ -189,14 +188,12 @@ public:
 
     void sort_by_id()
     {
-        std::sort(list.begin(), list.end(),
-                  [](person *p1, person *p2) { return p1->get_id() < p2->get_id(); });
+        std::sort(list.begin(), list.end(), [](person *p1, person *p2) { return p1->get_id() < p2->get_id(); });
     }
 
     void sort_by_name()
     {
-        std::sort(list.begin(), list.end(),
-                  [](person *p1, person *p2) { return p1->get_name() < p2->get_name(); });
+        std::sort(list.begin(), list.end(), [](person *p1, person *p2) { return p1->get_name() < p2->get_name(); });
         reSync_id();
     }
 
