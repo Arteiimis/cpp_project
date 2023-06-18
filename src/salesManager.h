@@ -15,7 +15,8 @@ private:
 public:
     salesManager() = default;
     salesManager(const std::string &name, const std::string &id, const std::string &level = "salesManager")
-            : person(name, id, level) { }
+            : person(name, id, level)
+    { }
     salesManager(const std::string &name, const std::string &id, const std::string &level = "salesManager",
                  size_t total_sales = 0, size_t base_salary = 6000)
             : person(name, id, level)
@@ -49,13 +50,17 @@ public:
         set_bonus();
     }
 
-    void set_bonus() { salesManagerSalery.bonus = salesManagerSalery.total_sales * bonus_per_sale; }
+    void set_bonus() override
+    { salesManagerSalery.bonus = salesManagerSalery.total_sales * bonus_per_sale; }
 
-    void set_salary() { salesManagerSalery.total_salary = salesManagerSalery.base_salary + salesManagerSalery.bonus; }
+    void set_salary() override
+    { salesManagerSalery.total_salary = salesManagerSalery.base_salary + salesManagerSalery.bonus; }
 
-    size_t get_sales() const { return salesManagerSalery.total_sales; }
+    size_t get_sales() const override
+    { return salesManagerSalery.total_sales; }
 
-    size_t get_salary() const { return salesManagerSalery.total_salary; }
+    size_t get_salary() const override
+    { return salesManagerSalery.total_salary; }
 
     void show() const override
     {
@@ -68,14 +73,12 @@ public:
 
     void fprint(std::ostream &os) const override
     {
-        os << "name: " << get_name()
-           << " id: " << get_id()
-           << " level: " << get_level()
-           << " sales: " << salesManagerSalery.total_sales
-           << " salary: " << salesManagerSalery.total_salary << std::endl;
+        os << "name: " << get_name() << " id: " << get_id() << " level: " << get_level() << " sales: "
+           << salesManagerSalery.total_sales << " salary: " << salesManagerSalery.total_salary << std::endl;
     }
 
-    void set_base_salary(size_t base_salary) override { salesManagerSalery.base_salary = base_salary; }
+    void set_base_salary(size_t base_salary) override
+    { salesManagerSalery.base_salary = base_salary; }
 };
 
 #endif // _SALESMANAGER_H_

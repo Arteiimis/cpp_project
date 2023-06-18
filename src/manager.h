@@ -32,7 +32,7 @@ public:
     }
     ~manager() = default;
 
-    void set_salary()
+    virtual void set_salary()
     { managerSalery.total_salary = managerSalery.base_salary; }
 
     size_t get_salary() const

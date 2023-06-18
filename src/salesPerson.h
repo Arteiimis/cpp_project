@@ -31,13 +31,13 @@ public:
         set_bonus();
     }
 
-    void set_bonus() { salesPersonSalery.bonus = salesPersonSalery.total_sales * bonus_per_sale; }
+    virtual void set_bonus() { salesPersonSalery.bonus = salesPersonSalery.total_sales * bonus_per_sale; }
 
     void set_salary() { salesPersonSalery.total_salary = salesPersonSalery.base_salary + salesPersonSalery.bonus; }
 
-    size_t get_sales() const { return salesPersonSalery.total_sales; }
+    virtual size_t get_sales() const { return salesPersonSalery.total_sales; }
 
-    size_t get_salary() const { return salesPersonSalery.total_salary; }
+    virtual size_t get_salary() const { return salesPersonSalery.total_salary; }
 
     virtual void show() const
     {

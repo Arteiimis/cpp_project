@@ -6,4 +6,5 @@ name: yui id: 5 level: manager salary: 8000
 name: zlp id: 6 level: technician hours: 50 salary: 2500
 name: zlp id: 7 level: technician hours: 100 salary: 5000
 name: 张林鹏 id: 8 level: technician hours: 100 salary: 5000
-name: lkj id: 9 level: salesManager sales: 10000 salary: 11000
+name: lkj id: 9 level: salesManager sales: 10000 salary: 13000
+name: ert id: 10 level: salesManager sales: 3000 salary: 1600
