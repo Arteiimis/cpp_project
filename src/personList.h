@@ -140,7 +140,8 @@ public:
 
     void _delete(const std::string &ni)
     {
-        auto it = std::find_if(list.begin(), list.end(), [ni](person *p) { return p->get_id() == ni || p->get_name() == ni; });
+        auto it = std::find_if(list.begin(), list.end(),
+                               [ni](person *p) { return p->get_id() == ni || p->get_name() == ni; });
         if (it != list.end()) { list.erase(it); }
         reSync_id();
     }
@@ -184,11 +185,6 @@ public:
             if (it->get_id() == ni || it->get_name() == ni) { res.push_back(it); }
         }
         return res;
-    }
-
-    void sort_by_id()
-    {
-        std::sort(list.begin(), list.end(), [](person *p1, person *p2) { return p1->get_id() < p2->get_id(); });
     }
 
     void sort_by_name()

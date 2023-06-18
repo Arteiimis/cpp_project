@@ -23,6 +23,7 @@ public:
     static void show()
     {
         CLEAR_OUTPUT;
+        std::cout << "======================" << std::endl;
         std::cout << "1. add a new person" << std::endl;
         std::cout << "2. show all person" << std::endl;
         std::cout << "3. delete a person" << std::endl;
@@ -31,6 +32,7 @@ public:
         std::cout << "6. sort by name" << std::endl;
         std::cout << "7. upgrate a person" << std::endl;
         std::cout << "8. save and exit" << std::endl;
+        std::cout << "======================" << std::endl;
     }
 
     void choice()
@@ -66,7 +68,12 @@ public:
             std::cout << "please confirm information: " << std::endl;
             list = fm.find(id);
             std::cout << "all matched person: " << std::endl;
-            for (auto &&i: list) { i->show(); }
+            for (auto &&i: list)
+            {
+                std::cout << "======================" << std::endl;
+                i->show();
+                if (i == list.back()) { std::cout << "======================" << std::endl; }
+            }
             std::cout << "please choose one person by id: ";
             std::cin >> id;
             p = fm.find(id)[0];
@@ -98,13 +105,20 @@ public:
             else
             {
                 std::cout << "all matched person: " << std::endl;
-                for (auto &&i: list) { i->show(); }
+                for (auto &&i: list)
+                {
+                    std::cout << "======================" << std::endl;
+                    i->show();
+                    if (i == list.back()) { std::cout << "======================" << std::endl; }
+                }
                 std::cout << "please choose one person by id: ";
                 std::cin >> id;
                 p = fm.find(id)[0];
                 CLEAR_OUTPUT;
                 std::cout << "please confirm information: " << std::endl;
+                std::cout << "======================" << std::endl;
                 p->show();
+                std::cout << "======================" << std::endl;
                 std::cout << "are you sure to modify this person? (y/n): ";
                 std::cin >> confirm;
                 CLEAR_OUTPUT;
@@ -235,7 +249,12 @@ public:
             else
             {
                 std::cout << "all matched person: " << std::endl;
-                for (auto &&i: list) { i->show(); }
+                for (auto &&i: list)
+                {
+                    std::cout << "============================" << std::endl;
+                    i->show();
+                    if (i == list.back()) { std::cout << "============================" << std::endl; }
+                }
             }
             PAUSE;
             break;

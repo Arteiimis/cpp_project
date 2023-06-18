@@ -48,7 +48,7 @@ public:
     size_t get_salary() const
     { return technicianSalery.total_salary; }
 
-    virtual void show() const
+    void show() const override
     {
         std::cout << "name: \t" << get_name() << std::endl;
         std::cout << "id: \t" << get_id() << std::endl;
@@ -57,7 +57,7 @@ public:
         std::cout << "salary: \t" << technicianSalery.total_salary << std::endl;
     }
 
-    virtual void fprint(std::ostream &os) const
+    void fprint(std::ostream &os) const override
     {
         os << "name: " << get_name() << " id: " << get_id() << " level: " << get_level() << " hours: "
            << technicianSalery.work_hour << " salary: " << technicianSalery.total_salary << std::endl;
